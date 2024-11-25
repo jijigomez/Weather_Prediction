@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background-image:url('img/earth.jpg');
+    background-position:  center -20px;; /* Centers the image */
+    background-size: cover; /* Ensures the image covers the entire header */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: white;
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+header p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* About Content */
+.about-content {
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Section Titles */
+h2 {
+    color: #333;
+    font-size: 28px;
+    margin-top: 30px;
+}
+
+/* Paragraphs */
+p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Unordered List */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+ul li {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-image:url(img/earth.jpg);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}

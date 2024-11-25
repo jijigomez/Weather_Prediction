@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Weather Wane</title>
+    <link rel="stylesheet" href="{% static 'css/style4.css' %}">
+    <style>
+        body {
+            background-image: url('{% static "img/clouds.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        .input-field {
+            margin: 10px 0;
+            position: relative;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-field label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .pass {
+            text-align: right;
+            margin: 10px 0;
+        }
+        .button {
+            margin-top: 20px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        p a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login to Weather Wane</h2>
+            <form method="post">
+                {% csrf_token %}
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+                <div class="input-field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="row button">
+                    <button type="submit">Login</button>
+                </div>
+                <p>Don't have an account? <a href="{% url 'reg' %}">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

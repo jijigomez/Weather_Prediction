@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .prediction-result {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+        .input-form input {
+            margin: 5px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body style="background-image: url('{% static 'img/default.jpeg' %}');">
+
+    <div class="container">
+        <h1>Weather Prediction</h1>
+        <form method="POST" class="input-form">
+            {% csrf_token %}
+            <input type="number" name="precipitation" placeholder="Precipitation (%)" required>
+            <input type="number" name="temp_max" placeholder="Max Temperature (°C)" required>
+            <input type="number" name="temp_min" placeholder="Min Temperature (°C)" required>
+            <input type="number" name="wind" placeholder="Wind Speed (km/h)" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="prediction-result">
+            <h2>Predicted Weather: {{ prediction }}</h2>
+            <ul>
+                <li>Precipitation: {{ input_data.precipitation }}%</li>
+                <li>Max Temp: {{ input_data.temp_max }}°C</li>
+                <li>Min Temp: {{ input_data.temp_min }}°C</li>
+                <li>Wind Speed: {{ input_data.wind }} km/h</li>
+            </ul>
+        </div>
+        {% else %}
+        <p>Enter the details above to get a weather prediction.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

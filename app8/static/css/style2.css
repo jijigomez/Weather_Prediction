@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image:url(img/weather.jpg);
+    margin: 0;
+    padding: 0;
+}
+
+.contact-container {
+    width: 50%;
+    margin: 50px auto;
+    background-image: url(img/tel.jpg);
+    background-size: cover; /* Ensures the image fills the container */
+    background-position: center; /* Aligns the image to the center */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    text-align: center;
+    color: #666;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    text-align: center;
+    flex: 1;
+}
+
+.info-item h3 {
+    color: #333;
+}
+
+.info-item p {
+    color: #666;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #4cae4c;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        width: 90%;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-item {
+        margin-bottom: 20px;
+    }
+}

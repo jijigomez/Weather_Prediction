@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Signup</title>
+    <link rel="stylesheet" href="{% static 'css/style5.css' %}">
+    <style>
+        body {
+            background-image: url('{% static "img/regback.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        .signup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .eye-icon {
+            position: absolute;
+            right: 10px;
+            top: 35%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="form-box">
+            <h2>Create an Account</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-field">
+                    <input type="text" id="username" name="username" required>
+                    <label for="username">Username</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="fullname" name="fullname" required>
+                    <label for="fullname">Full Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="location" name="location" required>
+                    <label for="location">Location</label>
+                </div>
+                <div class="input-field" style="position: relative;">
+                    <input type="password" id="password" name="password" required>
+                    <label for="password">Password</label>
+                    <span class="eye-icon" onclick="togglePassword()">
+                        <i id="eye-icon" class="fa fa-eye"></i>
+                    </span>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('eye-icon');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>
